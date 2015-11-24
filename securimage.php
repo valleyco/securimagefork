@@ -1,4 +1,5 @@
 <?php
+namespace valleyco\securimage;
 
 // error_reporting(E_ALL); ini_set('display_errors', 1); // uncomment this line for debugging
 
@@ -1440,7 +1441,6 @@ class Securimage
         try {
             if (!($audio = $this->getAudioData())) {
                 // if previously generated audio not found for current captcha
-                require_once dirname(__FILE__) . '/WavFile.php';
                 $audio = $this->getAudibleCode();
 
                 if (strtolower($format) == 'mp3') {

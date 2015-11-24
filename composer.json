@@ -2,7 +2,7 @@
     "name": "dapphp/securimage",
     "type": "library",
     "description": "PHP CAPTCHA Library",
-    "keywords": ["captcha","security"],
+    "keywords": ["captcha", "security"],
     "homepage": "https://www.phpcaptcha.org",
     "license": "BSD",
     "authors": [
@@ -16,6 +16,6 @@
         "ext-gd": "*"
     },
     "autoload": {
-        "classmap": ["securimage.php"]
+        "classmap": ["securimage.php", "WavFile.php"]
     }
 }

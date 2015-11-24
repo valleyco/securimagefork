@@ -1,4 +1,6 @@
 <?php
+include 'vendor/autoload.php';
+use valleyco\securimage\Securimage;
 session_start(); // this MUST be called prior to any output including whitespaces and line breaks!
 
 $GLOBALS['ct_recipient']   = 'YOU@EXAMPLE.COM'; // Change to your email address!
@@ -165,7 +167,6 @@ function process_si_contact_form()
         // Only try to validate the captcha if the form has no errors
         // This is especially important for ajax calls
         if (sizeof($errors) == 0) {
-            require_once dirname(__FILE__) . '/securimage.php';
             $securimage = new Securimage();
 
             if ($securimage->check($captcha) == false) {

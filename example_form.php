@@ -1,4 +1,6 @@
 <?php
+include 'vendor/autoload.php';
+use valleyco\securimage\Securimage;
 
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
@@ -82,7 +84,6 @@ if (isset($_SESSION['ctform']['error']) &&  $_SESSION['ctform']['error'] == true
   <div>
     <?php
       // show captcha HTML using Securimage::getCaptchaHtml()
-      require_once 'securimage.php';
       $options = array();
       $options['input_name']             = 'ct_captcha'; // change name of input element for form post
       $options['disable_flash_fallback'] = false; // allow flash fallback
@@ -159,7 +160,6 @@ function process_si_contact_form()
     // Only try to validate the captcha if the form has no errors
     // This is especially important for ajax calls
     if (sizeof($errors) == 0) {
-      require_once dirname(__FILE__) . '/securimage.php';
       $securimage = new Securimage();
 
       if ($securimage->check($captcha) == false) {
