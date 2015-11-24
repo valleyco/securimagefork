@@ -2,7 +2,7 @@
 
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
-
+$action = $_SERVER['REQUEST_URI'] . (isset($_SERVER['QUERY_STRING'])? isset($_SERVER['QUERY_STRING']): '');
 session_start(); // this MUST be called prior to any output including whitespaces and line breaks!
 
 $GLOBALS['DEBUG_MODE'] = 1;
@@ -52,7 +52,7 @@ if (isset($_SESSION['ctform']['error']) &&  $_SESSION['ctform']['error'] == true
 <div class="success">The captcha was correct and the message has been sent!  The captcha was solved in <?php echo $_SESSION['ctform']['timetosolve'] ?> seconds.</div><br />
 <?php endif; ?>
 
-<form method="post" action="<?php echo htmlspecialchars($_SERVER['REQUEST_URI'] . $_SERVER['QUERY_STRING']) ?>" id="contact_form">
+<form method="post" action="<?php echo htmlspecialchars($action) ?>" id="contact_form">
   <input type="hidden" name="do" value="contact">
 
   <p>
