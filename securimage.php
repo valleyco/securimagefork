@@ -1105,8 +1105,6 @@ class Securimage
      */
     public function show($background_image = '')
     {
-        set_error_handler(array(&$this, 'errorHandler'));
-
         if($background_image != '' && is_readable($background_image)) {
             $this->bgimg = $background_image;
         }
@@ -1429,8 +1427,6 @@ class Securimage
      */
     public function outputAudioFile($format = null)
     {
-        set_error_handler(array(&$this, 'errorHandler'));
-
         if (isset($_SERVER['HTTP_RANGE'])) {
             $range   = true;
             $rangeId = (isset($_SERVER['HTTP_X_PLAYBACK_SESSION_ID'])) ?
