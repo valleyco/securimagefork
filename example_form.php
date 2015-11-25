@@ -1,8 +1,10 @@
 <?php
+include 'vendor/autoload.php';
+use valleyco\securimage\Securimage;
 
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
-
+$action = $_SERVER['REQUEST_URI'] . (isset($_SERVER['QUERY_STRING'])? isset($_SERVER['QUERY_STRING']): '');
 session_start(); // this MUST be called prior to any output including whitespaces and line breaks!
 
 $GLOBALS['DEBUG_MODE'] = 1;
@@ -52,7 +54,7 @@ if (isset($_SESSION['ctform']['error']) &&  $_SESSION['ctform']['error'] == true
 <div class="success">The captcha was correct and the message has been sent!  The captcha was solved in <?php echo $_SESSION['ctform']['timetosolve'] ?> seconds.</div><br />
 <?php endif; ?>
 
-<form method="post" action="<?php echo htmlspecialchars($_SERVER['REQUEST_URI'] . $_SERVER['QUERY_STRING']) ?>" id="contact_form">
+<form method="post" action="<?php echo htmlspecialchars($action) ?>" id="contact_form">
   <input type="hidden" name="do" value="contact">
 
   <p>
@@ -82,7 +84,6 @@ if (isset($_SESSION['ctform']['error']) &&  $_SESSION['ctform']['error'] == true
   <div>
     <?php
       // show captcha HTML using Securimage::getCaptchaHtml()
-      require_once 'securimage.php';
       $options = array();
       $options['input_name']             = 'ct_captcha'; // change name of input element for form post
       $options['disable_flash_fallback'] = false; // allow flash fallback
@@ -159,7 +160,6 @@ function process_si_contact_form()
     // Only try to validate the captcha if the form has no errors
     // This is especially important for ajax calls
     if (sizeof($errors) == 0) {
-      require_once dirname(__FILE__) . '/securimage.php';
       $securimage = new Securimage();
 
       if ($securimage->check($captcha) == false) {

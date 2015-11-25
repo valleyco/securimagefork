@@ -1,4 +1,5 @@
 <?php
+namespace valleyco\securimage;
 
 // error_reporting(E_ALL); ini_set('display_errors', 1); // uncomment this line for debugging
 
@@ -1105,8 +1106,6 @@ class Securimage
      */
     public function show($background_image = '')
     {
-        set_error_handler(array(&$this, 'errorHandler'));
-
         if($background_image != '' && is_readable($background_image)) {
             $this->bgimg = $background_image;
         }
@@ -1429,8 +1428,6 @@ class Securimage
      */
     public function outputAudioFile($format = null)
     {
-        set_error_handler(array(&$this, 'errorHandler'));
-
         if (isset($_SERVER['HTTP_RANGE'])) {
             $range   = true;
             $rangeId = (isset($_SERVER['HTTP_X_PLAYBACK_SESSION_ID'])) ?
@@ -1444,7 +1441,6 @@ class Securimage
         try {
             if (!($audio = $this->getAudioData())) {
                 // if previously generated audio not found for current captcha
-                require_once dirname(__FILE__) . '/WavFile.php';
                 $audio = $this->getAudibleCode();
 
                 if (strtolower($format) == 'mp3') {

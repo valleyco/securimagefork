@@ -1,4 +1,5 @@
 <?php
+namespace valleyco\securimage;
 
 // error_reporting(E_ALL); ini_set('display_errors', 1); // uncomment this line for debugging
 
@@ -1905,7 +1906,7 @@ class WavFile
 /**
  * WavFileException indicates an illegal state or argument in this class.
  */
-class WavFileException extends Exception {}
+class WavFileException extends \Exception {}
 
 /**
  * WavFormatException indicates a malformed or unsupported wav file header.

@@ -1,4 +1,6 @@
 <?php
+include 'vendor/autoload.php';
+use valleyco\securimage\Securimage;
 session_start(); // this MUST be called prior to any output including whitespaces and line breaks!
 
 $GLOBALS['ct_recipient']   = 'YOU@EXAMPLE.COM'; // Change to your email address!
@@ -20,7 +22,7 @@ process_si_contact_form();
     <title>Securimage Example Form</title>
     <style type="text/css">
     <!--
-        #success_message { border: 1px solid #000; width: 550px; text-align: left; padding: 10px 7px; background: #33ff33; color: #000; font-weight; bold; font-size: 1.2em; border-radius: 4px; -moz-border-radius: 4px; -webkit-border-radius: 4px; }
+        #success_message { border: 1px solid #000; width: 550px; text-align: left; padding: 10px 7px; background: #33ff33; color: #000; font-weight: bold; font-size: 1.2em; border-radius: 4px; -moz-border-radius: 4px; -webkit-border-radius: 4px; }
         fieldset { width: 90%; }
         legend { font-size: 24px; }
         .note { font-size: 18px; }
@@ -165,7 +167,6 @@ function process_si_contact_form()
         // Only try to validate the captcha if the form has no errors
         // This is especially important for ajax calls
         if (sizeof($errors) == 0) {
-            require_once dirname(__FILE__) . '/securimage.php';
             $securimage = new Securimage();
 
             if ($securimage->check($captcha) == false) {
