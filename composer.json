@@ -1,14 +1,18 @@
 {
-    "name": "dapphp/securimage",
+    "name": "valleyco/securimage",
     "type": "library",
     "description": "PHP CAPTCHA Library",
     "keywords": ["captcha", "security"],
-    "homepage": "https://www.phpcaptcha.org",
+    "homepage": "https://github.com/valleyco/securimage",
     "license": "BSD",
     "authors": [
         {
             "name": "Drew Phillips",
             "email": "drew@drew-phillips.com"
+        }
+        {
+            "name": "David Levy",
+            "email": "david@valley.co.il"
         }
     ],
     "require": {
