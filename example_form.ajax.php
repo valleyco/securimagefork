@@ -1,6 +1,6 @@
 <?php
 include 'vendor/autoload.php';
-use valleyco\securimage\Securimage;
+use Valleyco\Securimage\Securimage;
 session_start(); // this MUST be called prior to any output including whitespaces and line breaks!
 
 $GLOBALS['ct_recipient']   = 'YOU@EXAMPLE.COM'; // Change to your email address!
