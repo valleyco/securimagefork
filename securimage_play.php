@@ -1,6 +1,6 @@
 <?php
 include 'vendor/autoload.php';
-use valleyco\securimage\Securimage;
+use Valleyco\Securimage\Securimage;
 
 /**
  * Project:     Securimage: A PHP class for creating and managing form CAPTCHA images<br />

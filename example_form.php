@@ -1,6 +1,6 @@
 <?php
 include 'vendor/autoload.php';
-use valleyco\securimage\Securimage;
+use Valleyco\Securimage\Securimage;
 
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
