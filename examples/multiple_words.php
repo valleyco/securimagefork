@@ -1,4 +1,5 @@
 <?php
+use Valleyco\Securimage\Securimage;
 
 /**
  * Multiple words captcha example
@@ -13,9 +14,6 @@
 // set debugging
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
-
-// defines Securimage class
-require_once '../securimage.php';
 
 $img = new Securimage();
 

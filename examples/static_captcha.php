@@ -1,4 +1,5 @@
 <?php
+use Valleyco\Securimage\Securimage;
 
 /**
  * Static Captcha Example Script
@@ -18,9 +19,6 @@
 // set debugging
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
-
-// defines Securimage class
-require_once '../securimage.php';
 
 // get the captcha ID from the url (if supplied)
 $captchaId = (isset($_GET['id'])) ? $_GET['id'] : '';

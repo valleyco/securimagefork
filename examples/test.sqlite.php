@@ -1,6 +1,5 @@
 <?php
-
-require_once '../securimage.php';
+use Valleyco\Securimage\Securimage;
 
 $t0         = microtime(true);
 

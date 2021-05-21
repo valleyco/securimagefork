@@ -1,7 +1,10 @@
 <?php
 namespace Valleyco\Securimage;
+use InvalidArgumentException;
 use PDOException;
 use Exception;
+use PDO;
+use Valleyco\Securimage\WavFile;
 
 // error_reporting(E_ALL); ini_set('display_errors', 1); // uncomment this line for debugging
 
@@ -49,7 +52,7 @@ use Exception;
  *
  */
 
-/**
+/*
 
  ChangeLog
 
@@ -204,7 +207,8 @@ use Exception;
  * @author     Drew Phillips <drew@drew-phillips.com>
  *
  */
-class Securimage
+
+ class Securimage
 {
     // All of the public variables below are securimage options
     // They can be passed as an array to the Securimage constructor, set below,
@@ -403,7 +407,7 @@ class Securimage
      *
      * 0.75 = normal, 1.0 = very high distortion
      *
-     * @var double
+     * @var float
      */
     public $perturbation = 0.85;
 
@@ -2128,7 +2132,7 @@ class Securimage
             $length = strlen($code['display']);
 
             for($i = 0; $i < $length; ++$i) {
-                $letter    = $code['display']{$i};
+                $letter    = $code['display'][$i];
                 $letters[] = $letter;
             }
         }
@@ -3098,8 +3102,8 @@ class Securimage
         }
 
         stream_set_blocking($pipes[0], 0); // set stdin to be non-blocking
-
-        for ($written = 0; $written < $size; $written += $len) {
+        
+        for ($len = 0,$written = 0; $written < $size; $written += $len) {
             // write to stdin until all WAV data is written
             $len = fwrite($pipes[0], substr($data, $written, 0x20000));
 

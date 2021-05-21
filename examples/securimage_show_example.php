@@ -1,4 +1,6 @@
 <?php
+use Valleyco\Securimage\Securimage;
+use Valleyco\Securimage\Securimage_Color;
 
 /**
  * Project:     Securimage: A PHP class for creating and managing form CAPTCHA images<br />
@@ -43,8 +45,6 @@
  * @package Securimage
  *
  */
-
-require_once '../securimage.php';
 
 $img = new Securimage();
 

@@ -1,6 +1,5 @@
 <?php
-
-require_once '../securimage.php';
+use Valleyco\Securimage\Securimage;
 
 $securimage = new Securimage(array('no_exit' => true));
 $securimage->use_database = true;

@@ -1,4 +1,5 @@
 <?php
+use Valleyco\Securimage\Securimage;
 
 /**
  * Display Value Captcha Example
@@ -18,9 +19,6 @@
 // Set debugging
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
-
-// Defines Securimage class
-require_once '../securimage.php';
 
 // Create an array of options to give to Securimage
 // This example sets the captcha text to the current time
